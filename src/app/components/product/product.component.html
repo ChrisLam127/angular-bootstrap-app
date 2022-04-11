@@ -1,0 +1,107 @@
+<app-hero [header]="hero"></app-hero>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- Spinner -->
+
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<section class="container mt-5" *ngIf="!loading && product">
+  <div class="row">
+    <div class="col-md-5 mb-4 mb-lg-0">
+      <div class="card rounded shadow-sm border-0">
+        <div class="card-body p-4">
+          <img
+            [src]="product.image"
+            width="100%"
+            alt=""
+            class="img-fluid d-block mx-auto mb-3"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="single-prodetails">
+        <h6>Home / T-Shirt</h6>
+        <h4>{{ product.title }}</h4>
+        <h2 class="fw-bold">
+          {{ product.price * product.quantity | currency: "R" }}
+        </h2>
+        <select class="form-control w-50">
+          <option>Select Size</option>
+          <option>XL</option>
+          <option>XXL</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+        </select>
+        <button class="btn btn-warning" (click)="decrQuantity()">
+          <i class="fas fa-minus"></i>
+        </button>
+        <span class="fs-4 m-4">{{ product.quantity }}</span>
+        <button class="btn btn-success" (click)="incrQuantity()">
+          <i class="fas fa-plus"></i></button
+        ><br />
+        <button
+          class="btn btn-lg fw-bold btn-outline-success my-3"
+          (click)="addToCart(product)"
+        >
+          Add To Cart
+        </button>
+        <h4>Product Details</h4>
+        <p class="fs-4">
+          {{ product.desc }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h1 class="text-center fw-bold">Featured Products</h1>
+  <p class="text-center h4">Check Out Our New & Modern Designs</p>
+  <div class="container py-5" *ngIf="!loading && products.length > 0">
+    <div class="row pb-5 mb-4">
+      <div
+        class="col-lg-3 col-md-6 mb-4 mb-lg-0"
+        *ngFor="let product of products"
+      >
+        <div
+          class="card rounded shadow-sm border-0 product-card"
+          style="cursor: pointer"
+        >
+          <div class="card-body p-4 card-display">
+            <img
+              [src]="product.image"
+              class="img-fluid d-block mx-auto mb-3"
+              alt="{{ product.title }}"
+              routerLink="/products/{{ product.id }}"
+            />
+
+            <div class="card-body">
+              <span>adidas</span>
+              <h5 class="card-title">{{ product.title }}</h5>
+              <div>
+                <app-rating></app-rating>
+              </div>
+              <h4>{{ product.price | currency: "R" }}</h4>
+
+              <button class="btn btn-primary" (click)="addToCart(product)">
+                <i class="cart fa fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-news-letter></app-news-letter>

@@ -1,0 +1,15 @@
+.product-card {
+  height: 600px;
+}
+
+.card-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-display img {
+  height: 90%;
+  object-fit: contain;
+}

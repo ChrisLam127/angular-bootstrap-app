@@ -1,0 +1,49 @@
+<app-hero [header]="hero"></app-hero>
+
+<!-- Displaying Products -->
+
+<!--  Loading Spinner -->
+
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="container py-5" *ngIf="!loading && products.length > 0">
+  <div class="row pb-5 mb-4">
+    <div
+      class="col-lg-3 col-md-6 mb-4 mb-lg-0"
+      *ngFor="let product of products"
+    >
+      <div
+        class="card rounded shadow-sm border-0 product-card"
+        style="cursor: pointer"
+      >
+        <div class="card-body p-4 card-display">
+          <img
+            [src]="product.image"
+            class="img-fluid d-block mx-auto mb-3"
+            alt="{{ product.title }}"
+            routerLink="/products/{{ product.id }}"
+          />
+
+          <div class="card-body">
+            <span>adidas</span>
+            <h5 class="card-title">{{ product.title }}</h5>
+            <div>
+              <app-rating></app-rating>
+            </div>
+            <h4>{{ product.price | currency: "R" }}</h4>
+
+            <button class="btn btn-primary buuton" (click)="addToCart(product)">
+              <i class="cart fa fa-shopping-cart"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-pagination> </app-pagination>
+<!-- New letter -->
+<app-news-letter></app-news-letter>

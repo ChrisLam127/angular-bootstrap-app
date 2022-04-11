@@ -1,0 +1,33 @@
+<section class="mt-5">
+  <h1 class="text-center fw-bold">New Arrived Products</h1>
+  <p class="text-center h4">Be The First to Wear Our New & Modern Designs</p>
+  <div class="container-fluid" *ngIf="!loading && newProducts.length > 0">
+    <div class="row px-5">
+      <div
+        class="col-lg-3 col-md-6 home-picture-container"
+        *ngFor="let product of newProducts"
+      >
+        <div class="card p-3 mt-5 pro">
+          <img
+            [src]="product.image"
+            class="card-img-top product-img"
+            alt="..."
+          />
+
+          <div class="card-body">
+            <span>{{ product.brand }}</span>
+            <h5 class="card-title">{{ product.title }}</h5>
+            <div>
+              <app-rating></app-rating>
+            </div>
+            <h4>{{ product.price | currency: "R" }}</h4>
+
+            <button class="btn btn-primary" (click)="addToCart(product)">
+              <i class="cart fa fa-shopping-cart"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

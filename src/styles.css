@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+.text-orangered {
+  transition: all 0.3s ease;
+}
+.text-orangered:hover {
+  background: orangered;
+  color: white;
+}

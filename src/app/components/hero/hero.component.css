@@ -1,0 +1,16 @@
+/* SHOP PAGE */
+#page-header {
+  background-image: url("../../../assets/img/banner/b1.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  height: 40vh;
+  padding: 14px;
+}
+#page-header h2,
+#page-header p {
+  color: #fff;
+}

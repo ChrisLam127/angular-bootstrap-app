@@ -1,0 +1,35 @@
+#newsletter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: url("../../../assets/img/banner/b14.png");
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+@media (max-width: 800px) {
+  #newsletter .form {
+    width: 70%;
+  }
+
+  /* CONTACT PAGE */
+  #form-details {
+    padding: 40px;
+  }
+  #form-details form {
+    width: 50%;
+  }
+  #newsletter .form {
+    width: 70%;
+  }
+
+  /* CONTACT PAGE */
+  #form-details {
+    padding: 40px;
+  }
+  #form-details form {
+    width: 50%;
+  }
+}
